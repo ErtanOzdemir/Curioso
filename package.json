@@ -1,0 +1,24 @@
+{
+  "name": "curioso",
+  "version": "1.0.0",
+  "description": "Online question asking app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErtanOzdemir/Curioso.git"
+  },
+  "keywords": [
+    "question",
+    "asking",
+    "app"
+  ],
+  "author": "Ertan Ozdemir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ErtanOzdemir/Curioso/issues"
+  },
+  "homepage": "https://github.com/ErtanOzdemir/Curioso#readme"
+}
