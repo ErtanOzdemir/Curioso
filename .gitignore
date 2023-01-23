@@ -4,3 +4,8 @@ node_modules
 
 #package-lock files
 package-lock.json
+
+
+#env files
+
+.env.development

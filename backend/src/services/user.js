@@ -7,4 +7,5 @@ const findUserByEmail = async (email) => {
 const createUser = async ({ email, password, name }) => {
   return await UserDataAccess.createUser({ email, password, name });
 };
+
 module.exports = { findUserByEmail, createUser };

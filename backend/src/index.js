@@ -3,6 +3,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const usersRouter = require("./routes/users");
+const roomsRouter = require("./routes/rooms");
 require("dot-env");
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(
 );
 app.use(express.json());
 app.use("/users", usersRouter);
+app.use("/rooms", roomsRouter);
 
 app.listen(8000, () => {
   console.log(`Example app listening on port 8000`);
