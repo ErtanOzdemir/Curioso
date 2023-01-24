@@ -2,8 +2,9 @@ const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
-const usersRouter = require("./routes/users");
+const authRouter = require("./routes/auth");
 const roomsRouter = require("./routes/rooms");
+const usersRouter = require("./routes/users");
 require("dot-env");
 
 const app = express();
@@ -30,8 +31,9 @@ app.use(
   })
 );
 app.use(express.json());
-app.use("/users", usersRouter);
+app.use("/auth", authRouter);
 app.use("/rooms", roomsRouter);
+app.use("/users", usersRouter);
 
 app.listen(8000, () => {
   console.log(`Example app listening on port 8000`);

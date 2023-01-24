@@ -11,7 +11,7 @@ router.post("/", sessionChecker, async (req, res, next) => {
     const room = await RoomService.createRoom({
       link,
       title,
-      creator: req.session.userId,
+      creator: req.session.payload.userId,
     });
     return res.json(room);
   } catch (error) {
