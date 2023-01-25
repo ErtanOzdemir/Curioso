@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const ErrorBox = styled.div`
+  font-family: Assistant;
   height: 100vh;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
