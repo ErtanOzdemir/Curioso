@@ -1,20 +1,29 @@
 import "./styles/app.css";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import PrivateRoute from "./routes/PrivateRoute";
+import PublicRoute from "./routes/PublicRoute";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
+import ErrorPage from "./pages/RouteErrorPage";
+import { AuthProvider } from "./context/AuthContext";
+import SignupPage from "./pages/SignupPage";
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route element={<PrivateRoute />}>
+              <Route element={<ProfilePage />} path={"/profile"} />
+            </Route>
+            <Route element={<PublicRoute />}>
+              <Route element={<LoginPage />} path={"/login"} />
+              <Route element={<SignupPage />} path={"/signup"} />
+            </Route>
+            <Route element={<ErrorPage />} path='*' />
+          </Routes>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }

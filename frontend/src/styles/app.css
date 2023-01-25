@@ -1,3 +1,12 @@
+body {
+  min-width: 320px;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
 @font-face {
   font-family: "Assistant";
   src: url("../fonts/Assistant/Assistant-ExtraBold.ttf") format("truetype");
