@@ -1,10 +1,5 @@
 body {
-  min-width: 320px;
-  width: 100%;
-}
-
-body {
-  font-family: "Inter", sans-serif;
+  font-family: "Assistan", sans-serif;
 }
 
 @font-face {
