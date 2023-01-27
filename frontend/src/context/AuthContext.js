@@ -4,23 +4,21 @@ import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState(
-    localStorage.getItem("user") || { userId: null, userIsAuth: false }
-  );
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const navigate = useNavigate();
 
   const login = async (data) => {
-    setUserData(data);
+    setIsAuth(data);
     navigate("/profile");
   };
 
   const logout = () => {
-    setUserData(null);
+    setIsAuth(null);
     navigate("/", { replace: true });
   };
 
   return (
-    <AuthContext.Provider value={{ userData, login, logout }}>
+    <AuthContext.Provider value={{ isAuth, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -39,7 +39,7 @@ router.post("/signup", async (req, res, next) => {
   return res.status(HTTP_ERRORS.OK.CODE).send(HTTP_ERRORS.OK.MESSAGE);
 });
 
-router.get("/login", async (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -63,7 +63,7 @@ router.get("/login", async (req, res, next) => {
       userId: user._id,
       isAuth: true,
     };
-    return res.status(HTTP_ERRORS.OK.CODE).send(HTTP_ERRORS.OK.MESSAGE);
+    return res.json(req.session);
   }
   return res
     .status(HTTP_ERRORS.BAD_REQUEST.CODE)

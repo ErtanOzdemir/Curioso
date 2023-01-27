@@ -1,7 +1,7 @@
 const { HTTP_ERRORS } = require("../utils/constants");
 
 const sessionChecker = (req, res, next) => {
-  const userSession = req.session.userId;
+  const userSession = req.session.payload.userId;
 
   if (!userSession) {
     return res

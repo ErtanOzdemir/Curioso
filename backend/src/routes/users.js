@@ -9,17 +9,18 @@ router.get("/", sessionChecker, async (req, res, next) => {
   return res.json(allUsers);
 });
 
-router.get("/:userId", sessionChecker, async (req, res, next) => {
-  const { userId } = req.params;
+router.get("/me", sessionChecker, async (req, res, next) => {
+  const { userId } = req.session.payload;
 
   const user = await UserService.findUserById(userId);
 
   return res.json(user);
 });
 
-router.get("/me", sessionChecker, async (req, res, next) => {
-  const user = await UserService.findUserById(req.session.payload.userId);
+router.get("/:userId", sessionChecker, async (req, res, next) => {
+  const { userId } = req.params;
 
+  const user = await UserService.findUserById(userId);
   return res.json(user);
 });
 
