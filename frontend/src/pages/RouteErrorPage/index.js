@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const ErrorBox = styled.div`
@@ -14,7 +15,7 @@ const ErrorBox = styled.div`
 export default function ErrorPage() {
   return (
     <>
-      <ErrorBox>We couldn't find that page!</ErrorBox>
+      <ErrorBox>We couldn&apos;t find that page!</ErrorBox>
     </>
   );
 }

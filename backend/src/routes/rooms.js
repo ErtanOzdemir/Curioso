@@ -13,7 +13,8 @@ router.post("/", sessionChecker, async (req, res, next) => {
       title,
       creator: req.session.payload.userId,
     });
-    return res.json(room);
+
+    return res.json(room._id.toHexString());
   } catch (error) {
     res.status(HTTP_ERRORS.BAD_REQUEST).send("Something went wrong!");
   }

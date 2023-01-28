@@ -3,13 +3,19 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
+const { createServer } = require("http");
 const authRouter = require("./routes/auth");
 const roomsRouter = require("./routes/rooms");
 const usersRouter = require("./routes/users");
-var cors = require("cors");
-require("dot-env");
+const { Server } = require("socket.io");
 
+const cors = require("cors");
 const app = express();
+const httpServer = createServer(app);
+
+const io = new Server(httpServer);
+
+require("dot-env");
 
 mongoose
   .connect(process.env.MONGODB_URL)
@@ -52,6 +58,10 @@ app.use("/auth", authRouter);
 app.use("/rooms", roomsRouter);
 app.use("/users", usersRouter);
 
-app.listen(8000, () => {
-  console.log(`Example app listening on port 8000`);
+io.on("connection", (socket) => {
+  console.log("Ther is a connection");
+});
+
+httpServer.listen(8000, () => {
+  console.log("Connected to server");
 });
